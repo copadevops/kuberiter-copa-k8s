@@ -1,10 +1,19 @@
 apiVersion: v1
 kind: Pod
 metadata:
-  name: private-image-test-1
+  labels:
+    app: tomcat
+  name: kube2-tomcat9-pod
 spec:
   containers:
-    - name: uses-private-image
-      image: $PRIVATE_IMAGE_NAME
-      imagePullPolicy: Always
-      command: [ "echo", "SUCCESS" ]
+  - args:
+    - HOME
+    command:
+    - echo
+    env:
+    - name: testfol
+      value: folder
+    image: kuberiter/demo:tomcat-v1
+    name: tomcat-test
+    ports:
+    - containerPort: 8088
