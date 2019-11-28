@@ -1,0 +1,28 @@
+apiVersion: apps/v1
+kind: ReplicaSet
+metadata:
+  labels:
+    app: tomcat
+  name: kube2-tomcat-replicaset
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      tier: webserver
+  template:
+    metadata:
+      labels:
+        tier: webserver
+    spec:
+      containers:
+      - args:
+        - HOME
+        command:
+        - echo
+        env:
+        - name: testfol
+          value: folder
+        image: kuberiter/demo:tomcat-v1
+        name: tomcat-test
+        ports:
+        - containerPort: 8088
