@@ -2,14 +2,14 @@ apiVersion: extensions/v1beta1
 kind: Ingress
 metadata:
   labels:
-    app: tomcat
-  name: kube2-tomcat9-ingress
+    app: nginx
+  name: kube2-nginx-ingress
 spec:
   rules:
   - host: ''
     http:
       paths:
       - backend:
-          serviceName: tomcat-services
+          serviceName: nginx-services
           servicePort: 80
         path: /app
