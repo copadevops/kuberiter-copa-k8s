@@ -2,8 +2,8 @@ apiVersion: apps/v1
 kind: ReplicaSet
 metadata:
   labels:
-    app: tomcat
-  name: kube2-tomcat-replicaset
+    app: nginx
+  name: kube2-nginx-replicaset
 spec:
   replicas: 3
   selector:
@@ -22,7 +22,7 @@ spec:
         env:
         - name: testfol
           value: folder
-        image: kuberiter/demo:tomcat-v1
-        name: tomcat-test
+        image: nginx
+        name: nginx-container
         ports:
-        - containerPort: 8088
+        - containerPort: 8080
