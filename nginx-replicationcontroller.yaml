@@ -2,8 +2,8 @@ apiVersion: v1
 kind: ReplicationController
 metadata:
   labels:
-    app: tomcat
-  name: kube2-tomcat9-replicationcontroller
+    app: nginx
+  name: kube2-nginx-replicationcontroller
 spec:
   replicas: 3
   selector:
@@ -21,7 +21,7 @@ spec:
         env:
         - name: testfol
           value: folder
-        image: kuberiter/demo:tomcat-v1
-        name: tomcat-test
+        image: nginx
+        name: nginx-container
         ports:
-        - containerPort: 8088
+        - containerPort: 8080
